@@ -10,33 +10,33 @@ string? inputlineB = Console.ReadLine();
 Console.Write("Введите третье число: ");
 string? inputlineC = Console.ReadLine();
 
-if (inputlineA != null && inputlineB != null && inputlineC != null) // Задаем условие, что строки не должны быть пустые
+// if (inputlineA != null && inputlineB != null && inputlineC != null) // Задаем условие, что строки не должны быть пустые
 
-{
-    int firstNumber = int.Parse(inputlineA); // Присваиваем переменные + парсим строку в инт
-    int secondNumber = int.Parse(inputlineB);
-    int thirdNumber = int.Parse(inputlineC);
-    int maxNumber = 0; // Создаем переменную для хранения макс значения
+// {
+//     int firstNumber = int.Parse(inputlineA); // Присваиваем переменные + парсим строку в инт
+//     int secondNumber = int.Parse(inputlineB);
+//     int thirdNumber = int.Parse(inputlineC);
+//     int maxNumber = 0; // Создаем переменную для хранения макс значения
 
-    if (firstNumber > secondNumber) // Сравниваем первую пару
-    {
-        maxNumber = firstNumber; // Изменяем значение переменной
-    }
-    else
-    {
-        maxNumber = secondNumber; // Изменяем значение переменной
-    }
+//     if (firstNumber > secondNumber) // Сравниваем первую пару
+//     {
+//         maxNumber = firstNumber; // Изменяем значение переменной
+//     }
+//     else
+//     {
+//         maxNumber = secondNumber; // Изменяем значение переменной
+//     }
 
-    if (maxNumber > thirdNumber) // Сравнваем вторую пару(в maxNumber уже есть наибольшое число из первой пары)
-    {
-        Console.WriteLine("Наибольшее число: " + maxNumber); // Вывод результата в консоль
-    }
-    else
-    {
-        maxNumber = thirdNumber;
-        Console.WriteLine("Наибольшее число: " + maxNumber); // Вывод результата в консоль
-    }
-}
+//     if (maxNumber > thirdNumber) // Сравнваем вторую пару(в maxNumber уже есть наибольшое число из первой пары)
+//     {
+//         Console.WriteLine("Наибольшее число: " + maxNumber); // Вывод результата в консоль
+//     }
+//     else
+//     {
+//         maxNumber = thirdNumber;
+//         Console.WriteLine("Наибольшее число: " + maxNumber); // Вывод результата в консоль
+//     }
+// }
 
 
 // Решение 2
@@ -64,3 +64,30 @@ if (inputlineA != null && inputlineB != null && inputlineC != null) // Зада�
 //     Console.Write("Наибольшее число: " + max); // Вывод результата в консоль
 
 // }
+
+// Решение 3
+
+// if (inputlineA != null && inputlineB != null && inputlineC != null) // Задаем условие, что строки не должны быть пустые
+
+// {
+//     int firstNumber = int.Parse(inputlineA); // Присваиваем переменные + парсим строку в инт
+//     int secondNumber = int.Parse(inputlineB);
+//     int thirdNumber = int.Parse(inputlineC);
+    
+//     int max = Math.Max(firstNumber, secondNumber);
+//     max = Math.Max(max, thirdNumber);
+//     Console.Write("Наибольшее число: " + max);
+// }
+
+// Решение 4
+
+if (inputlineA != null && inputlineB != null && inputlineC != null) // Задаем условие, что строки не должны быть пустые
+
+{
+    int firstNumber = int.Parse(inputlineA); // Присваиваем переменные + парсим строку в инт
+    int secondNumber = int.Parse(inputlineB);
+    int thirdNumber = int.Parse(inputlineC);
+    int[] array = new int[] {firstNumber, secondNumber, thirdNumber};
+    int max = array.Max();
+    Console.WriteLine("Наибольшее число: " + max);
+}
