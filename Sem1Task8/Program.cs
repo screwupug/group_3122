@@ -5,7 +5,7 @@
 
 Console.Write("Введите число: "); // Создаем строку ввода
 string? inputlineN = Console.ReadLine(); // Инициализируем сканер
-int startNumber = 1; // Переменна, с кот начинается отчет
+int startNumber = 2; // Переменна, с кот начинается отчет
 
 if (inputlineN != null) // Проверяем, что строка не пустая 
 {
@@ -18,8 +18,11 @@ if (inputlineN != null) // Проверяем, что строка не пуст
         {
             Console.Write(startNumber + ", "); // Если число делится - выводим в консоль
         }
-        startNumber++; // прибавляем единицу к числу
-    } while (startNumber < inputnumberN); // Условие завершения цикла 
-    Console.WriteLine(inputnumberN);
+        startNumber += 2; // прибавляем единицу к числу
+    } while (startNumber <= inputnumberN - 2); // Условие завершения цикла 
+    if (startNumber % 2 == 0)
+    {
+        Console.WriteLine(startNumber);
+    }
 
 }
