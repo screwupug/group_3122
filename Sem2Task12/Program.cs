@@ -68,9 +68,11 @@ void ReadData()
     string? inputLineA = Console.ReadLine();
     Console.Write("Введите второе число: ");
     string? inputLineB = Console.ReadLine();
-
-    firstNumber = int.Parse(inputLineA);
-    secondNumber = int.Parse(inputLineB);
+    if(inputLineA != null && inputLineB != null)
+    {
+        firstNumber = int.Parse(inputLineA);
+        secondNumber = int.Parse(inputLineB);    
+    }
 }
 
 // Определяем кратность числа
