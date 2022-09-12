@@ -3,35 +3,35 @@
 // находит расстояние между ними в 3D пространстве.
 //=============================================================================
 
-int ReadData(string line)
-{
-    // Выводим сообщение
-    Console.Write(line);
-    // Считываем число
-    int number = int.Parse(Console.ReadLine() ?? "0");
-    // Возвращаем значение
-    return number;
-}
+// int ReadData(string line)
+// {
+//     // Выводим сообщение
+//     Console.Write(line);
+//     // Считываем число
+//     int number = int.Parse(Console.ReadLine() ?? "0");
+//     // Возвращаем значение
+//     return number;
+// }
 
-double CalculateData(int x1, int x2, int x3, int y1, int y2, int y3)
-{
-    double res = Math.Sqrt(Math.Pow(x2 - x1, 2) + Math.Pow(y2 - y1, 2) + Math.Pow(x3 - y3, 2));
-    return res;
-}
+// double CalculateData(int x1, int x2, int x3, int y1, int y2, int y3)
+// {
+//     double res = Math.Sqrt(Math.Pow(x2 - x1, 2) + Math.Pow(y2 - y1, 2) + Math.Pow(x3 - y3, 2));
+//     return res;
+// }
 
-void PrintResult(string line)
-{
-    Console.WriteLine(line);
-}
+// void PrintResult(string line)
+// {
+//     Console.WriteLine(line);
+// }
 
-int x1 = ReadData("Введите x1: ");
-int x2 = ReadData("Введите x2: ");
-int x3 = ReadData("Введите x3: ");
-int y1 = ReadData("Введите y1: ");
-int y2 = ReadData("Введите y2: ");
-int y3 = ReadData("Введите y3: ");
-double res = CalculateData(x1, x2, x3, y1, y2, y3);
-PrintResult($"{Math.Round(res, 2)}");
+// int x1 = ReadData("Введите x1: ");
+// int x2 = ReadData("Введите x2: ");
+// int x3 = ReadData("Введите x3: ");
+// int y1 = ReadData("Введите y1: ");
+// int y2 = ReadData("Введите y2: ");
+// int y3 = ReadData("Введите y3: ");
+// double res = CalculateData(x1, x2, x3, y1, y2, y3);
+// PrintResult($"{Math.Round(res, 2)}");
 
 // Решение со звездочкой
 
