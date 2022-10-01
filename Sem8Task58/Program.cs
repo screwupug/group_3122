@@ -55,7 +55,6 @@ int[,] DivMatrix(int[,] matrix1, int[,] matrix2)
         {
             for (int j = 0; j < matrix3.GetLength(1); j++)
             {
-                matrix3[i, j] = 0;
                 for (int n = 0; n < matrix1.GetLength(1); n++)
                 {
                     matrix3[i, j] += matrix1[i, n] * matrix2[n, j];

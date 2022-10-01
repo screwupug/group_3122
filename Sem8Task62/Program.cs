@@ -2,51 +2,76 @@
 // # 62 Напишите программу, которая заполнит спирально массив 4 на 4.
 //=======================================================================
 
-// int[,] Array2DGenerator()
-// {
-//     int[,] array2D = new int[4, 4];
-//     Random rnd = new Random();
-//     for (int i = 0; i < array2D.GetLength(0); i++)
-//     {
-//         for (int j = 0; j < array2D.GetLength(1); j++)
-//         {
-//             array2D[i, j] = rnd.Next(1, 10 + 1);
-//         }
-//     }
-//     return array2D;
-// }
-
-// // Метод печати массива
-// void Print2DArray(int[,] array2D)
-// {
-//     for (int i = 0; i < array2D.GetLength(0); i++)
-//     {
-//         for (int j = 0; j < array2D.GetLength(1); j++)
-//         {
-//             Console.Write($"{array2D[i, j]} ");
-//         }
-//         Console.WriteLine();
-//     }
-// }
-
-// int[,] array2D = Array2DGenerator();
-// Print2DArray(array2D);
-
-int[,] array2D = new int[4,4]; 
-
-for(int i = 0; i < array2D.GetLength(0) / array2D.GetLength(0); i++)
+// Получаем данные из консоли
+int[] ReadData(string line)
 {
-    for(int j = 0; j < array2D.GetLength(1); j++)
+    Console.Write(line);
+    string inputLine = Console.ReadLine() ?? "";
+    string[] inputNumber = inputLine.Split(',', StringSplitOptions.RemoveEmptyEntries);
+    int[] rowsCols = new int[inputNumber.Length];
+    for (int i = 0; i < rowsCols.Length; i++)
     {
-        array2D[i, j] = 1;
+        rowsCols[i] = int.Parse(inputNumber[i]);
+    }
+    return rowsCols;
+}
+
+// Метод печати массива
+void Print2DArray(int[,] array2D)
+{
+    for (int i = 0; i < array2D.GetLength(0); i++)
+    {
+        for (int j = 0; j < array2D.GetLength(1); j++)
+        {
+            Console.Write($"{array2D[i, j]} ");
+        }
+        Console.WriteLine();
     }
 }
 
-for(int i = 0; i < array2D.GetLength(0); i++)
+// Закручиваем спираль через повороты
+int[,] SpiralGen(int[] rowsCols)
 {
-    for(int j = 0; j < array2D.GetLength(1); j++)
+    int[,] array2D = new int[4,4];
+    int startRow = 0;
+    int endRow = array2D.GetLength(0) - 1;
+    int startCol = 0;
+    int endCol = array2D.GetLength(1) - 1;
+    int counter = 1;
+
+    while (startRow <= endRow && startCol <= endCol)
     {
-        Console.Write($"{array2D[i, j]} ");
+        for (int i = startCol; i <= endCol; i++)
+        {
+            array2D[startRow, i] = counter;
+            counter++;
+        }
+        startRow++;
+
+        for (int j = startRow; j <= endRow; j++)
+        {
+            array2D[j, endCol] = counter;
+            counter++;
+        }
+        endCol--;
+
+        for (int k = endCol; k >= startCol; k--)
+        {
+            array2D[endRow, k] = counter;
+            counter++;
+        }
+        endRow--;
+
+        for (int n = endRow; n >= startRow; n--)
+        {
+            array2D[n, startCol] = counter;
+            counter++;
+        }
+        startCol++;
     }
-    Console.WriteLine();
+    return array2D;
 }
+
+int[] rowsCols = ReadData("Введите кол-во строк и столбцов: ");
+int[,] matrix = SpiralGen(rowsCols);
+Print2DArray(matrix);
